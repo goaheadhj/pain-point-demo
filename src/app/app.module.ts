@@ -9,6 +9,7 @@ import { RootCauseListComponent } from './root-cause-list/root-cause-list.compon
 import { RootCauseItemComponent } from './root-cause-item/root-cause-item.component';
 import { RootCauseLinkComponent } from './root-cause-link/root-cause-link.component';
 import { RootCauseEditorComponent } from './root-cause-editor/root-cause-editor.component';
+import { TextBlockComponent } from './text-block/text-block.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RootCauseEditorComponent } from './root-cause-editor/root-cause-editor.
     RootCauseListComponent,
     RootCauseItemComponent,
     RootCauseLinkComponent,
-    RootCauseEditorComponent
+    RootCauseEditorComponent,
+    TextBlockComponent
   ],
   imports: [
     BrowserModule,

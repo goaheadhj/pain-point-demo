@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PainPointModel } from '../models/pain-point.model';
+import { RootCauseEditor } from '../models/root-cause-editor.service';
 
 @Component({
   selector: 'g[app-pain-point-list]',
@@ -7,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PainPointListComponent implements OnInit {
 
-  constructor() {
+  @Input()
+  items: PainPointModel[] = [];
+
+  constructor(private editor: RootCauseEditor) {
   }
 
   ngOnInit() {
   }
 
+  yOf(item: PainPointModel): number {
+    return this.editor.heightOfPainPoint * this.items.indexOf(item);
+  }
 }

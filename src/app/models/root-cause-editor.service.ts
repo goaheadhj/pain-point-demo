@@ -12,7 +12,7 @@ export class RootCauseEditor {
   painPoints: PainPointModel[] = painPoints;
   heightOfPainPoint = 60;
   widthOfPainPoint = 750;
-  gutterOfPainPoint = 10;
+  gutter = 100;
   heightOfRootCause = 60;
   widthOfRootCause = 250;
 
@@ -25,8 +25,11 @@ export class RootCauseEditor {
   }
 
   heightOf(cause: RootCauseModel): number {
-    const innerPainPoints = this.painPoints.filter(it => it.rootCauseId === cause.id);
-    return (this.heightOfPainPoint + this.gutterOfPainPoint) * Math.max(innerPainPoints.length, 1);
+    return this.heightOfPainPoint * Math.max(this.painPointsOf(cause).length, 1);
+  }
+
+  painPointsOf(cause: RootCauseModel): PainPointModel[] {
+    return this.painPoints.filter(it => it.rootCauseId === cause.id);
   }
 
   halfHeightOf(cause: RootCauseModel): number {

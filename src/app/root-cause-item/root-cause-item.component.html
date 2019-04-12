@@ -1,7 +1,9 @@
-<svg:g xmlns:svg="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <g attr.transform="translate({{editor.widthOfPainPoint}},{{editor.halfHeightOf(cause)}})">
-    <foreignObject [attr.width]="editor.widthOfRootCause" [attr.height]="editor.heightOfRootCause">
-      <xhtml:div>{{cause.title}}</xhtml:div>
-    </foreignObject>
+<svg:g xmlns:svg="http://www.w3.org/2000/svg">
+  <g app-pain-point-list [items]="editor.painPointsOf(cause)"></g>
+  <g
+    attr.transform="translate({{editor.widthOfPainPoint}},{{editor.halfHeightOf(cause) - editor.heightOfRootCause / 2}})">
+    <g app-text-block [width]="editor.widthOfRootCause" [height]="editor.heightOfRootCause"
+       [text]="cause.title">
+    </g>
   </g>
 </svg:g>
