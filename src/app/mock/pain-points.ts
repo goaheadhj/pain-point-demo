@@ -2,11 +2,6 @@ import { PainPointModel } from '../models/pain-point.model';
 
 export const painPoints: PainPointModel[] = [
   {
-    id: 11,
-    title: '痛点11',
-    rootCauseId: 1,
-  },
-  {
     id: 12,
     title: '痛点12',
     rootCauseId: 1,
@@ -41,6 +36,11 @@ export const painPoints: PainPointModel[] = [
   {
     id: 34,
     title: '痛点34',
+  },
+  {
+    id: 11,
+    title: '痛点11',
+    rootCauseId: 1,
   },
 ];
 

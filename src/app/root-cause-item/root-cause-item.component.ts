@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RootCauseModel } from '../models/root-cause.model';
-import { RootCauseEditor } from '../models/root-cause-editor.service';
+import { RootCauseViewModel } from '../models/root-cause.view-model';
 
 @Component({
   selector: 'g[app-root-cause-item]',
@@ -10,9 +9,9 @@ import { RootCauseEditor } from '../models/root-cause-editor.service';
 export class RootCauseItemComponent implements OnInit {
 
   @Input()
-  cause: RootCauseModel;
+  item: RootCauseViewModel;
 
-  constructor(public editor: RootCauseEditor) {
+  constructor() {
   }
 
   ngOnInit() {

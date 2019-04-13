@@ -1,9 +1,3 @@
 <svg:g xmlns:svg="http://www.w3.org/2000/svg">
-  <g app-pain-point-list [items]="editor.painPointsOf(cause)"></g>
-  <g
-    attr.transform="translate({{editor.widthOfPainPoint}},{{editor.halfHeightOf(cause) - editor.heightOfRootCause / 2}})">
-    <g app-text-block [width]="editor.widthOfRootCause" [height]="editor.heightOfRootCause"
-       [text]="cause.title">
-    </g>
-  </g>
+  <g app-text-block [rect]="item.rect" [text]="item.payload.title"></g>
 </svg:g>

@@ -10,6 +10,7 @@ import { RootCauseItemComponent } from './root-cause-item/root-cause-item.compon
 import { RootCauseLinkComponent } from './root-cause-link/root-cause-link.component';
 import { RootCauseEditorComponent } from './root-cause-editor/root-cause-editor.component';
 import { TextBlockComponent } from './text-block/text-block.component';
+import { RootCauseLinksComponent } from './root-cause-links/root-cause-links.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TextBlockComponent } from './text-block/text-block.component';
     RootCauseItemComponent,
     RootCauseLinkComponent,
     RootCauseEditorComponent,
-    TextBlockComponent
+    TextBlockComponent,
+    RootCauseLinksComponent
   ],
   imports: [
     BrowserModule,

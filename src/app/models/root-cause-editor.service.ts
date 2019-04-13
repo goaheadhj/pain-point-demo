@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { rootCauses } from '../mock/root-causes';
-import { painPoints } from '../mock/pain-points';
 import { RootCauseModel } from './root-cause.model';
 import { PainPointModel } from './pain-point.model';
+import { RootCauseViewModel } from './root-cause.view-model';
+import { PainPointViewModel } from './pain-point.view-model';
+import { Rect } from './rect';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RootCauseEditor {
-  rootCauses: RootCauseModel[] = rootCauses;
-  painPoints: PainPointModel[] = painPoints;
+  rootCauses: RootCauseViewModel[] = [];
+  painPoints: PainPointViewModel[] = [];
   heightOfPainPoint = 60;
   widthOfPainPoint = 750;
   gutter = 100;
@@ -19,20 +20,40 @@ export class RootCauseEditor {
   constructor() {
   }
 
-  yOf(cause: RootCauseModel): number {
-    const index = this.rootCauses.indexOf(cause);
-    return this.rootCauses.slice(0, index).reduce((acc, it) => acc + this.heightOf(it), 0);
+  get width(): number {
+    return this.widthOfPainPoint + this.gutter + this.widthOfRootCause;
   }
 
-  heightOf(cause: RootCauseModel): number {
-    return this.heightOfPainPoint * Math.max(this.painPointsOf(cause).length, 1);
+  get height(): number {
+    return this.painPoints.map(it => it.rect.height).reduce((acc, height) => acc + height, 0);
   }
 
-  painPointsOf(cause: RootCauseModel): PainPointModel[] {
-    return this.painPoints.filter(it => it.rootCauseId === cause.id);
+  load(rootCause: RootCauseModel[], painPoints: PainPointModel[]): void {
+    this.rootCauses = rootCause.map(it => new RootCauseViewModel(it));
+    this.painPoints = painPoints.sort((v1, v2) => (v1.rootCauseId || 999) - (v2.rootCauseId || 999))
+      .map((it, index) => new PainPointViewModel(it));
+    this.updateRelations();
+    this.updateRects();
   }
 
-  halfHeightOf(cause: RootCauseModel): number {
-    return this.heightOf(cause) / 2;
+  private updateRects(): void {
+    this.painPoints.forEach((it, index) => {
+      return it.rect = new Rect(0, index * this.heightOfPainPoint, this.widthOfPainPoint, this.heightOfPainPoint);
+    });
+
+    let top = 0;
+    this.rootCauses.forEach((cause) => {
+      const outerHeight = cause.painPoints.reduce((acc, it) => acc + it.rect.height, 0) || this.heightOfRootCause;
+      cause.rect = new Rect(this.widthOfPainPoint + this.gutter, top + outerHeight / 2 - this.heightOfRootCause / 2,
+        this.widthOfRootCause, this.heightOfRootCause);
+      top += outerHeight;
+    });
+  }
+
+  private updateRelations(): void {
+    this.rootCauses.forEach(cause => cause.painPoints =
+      this.painPoints.filter(painPoint => painPoint.payload.rootCauseId === cause.payload.id),
+    );
+    this.rootCauses.forEach(cause => cause.painPoints.forEach(painPoint => painPoint.rootCause = cause));
   }
 }

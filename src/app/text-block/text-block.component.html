@@ -1,5 +1,6 @@
 <svg:foreignObject xmlns:svg="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml"
-                   [attr.width]="width" [attr.height]="height">
+                   [attr.width]="rect.width" [attr.height]="rect.height"
+                   attr.transform="translate({{rect.left}},{{rect.top}})">
   <xhtml:div>
     <div class="content">
       {{text}}

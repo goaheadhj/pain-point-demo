@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Rect } from '../models/rect';
 
 @Component({
   selector: 'g[app-text-block]',
@@ -7,9 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TextBlockComponent implements OnInit {
   @Input()
-  height: string;
-  @Input()
-  width: string;
+  rect: Rect;
   @Input()
   text: string;
 

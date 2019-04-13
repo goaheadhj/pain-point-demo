@@ -1,4 +1,3 @@
 <svg:g xmlns:svg="http://www.w3.org/2000/svg">
-  <g app-root-cause-item *ngFor="let cause of editor.rootCauses"
-     attr.transform="translate(0, {{editor.yOf(cause)}})" [cause]="cause"></g>
+  <g app-root-cause-item *ngFor="let item of items" [item]="item"></g>
 </svg:g>

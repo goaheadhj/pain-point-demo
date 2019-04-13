@@ -1,3 +1,5 @@
-<svg viewBox="0 0 1000 500">
-  <g app-root-cause-list></g>
+<svg attr.viewBox="0 0 {{editor.width}} {{editor.height}}">
+  <g app-pain-point-list [items]="editor.painPoints"></g>
+  <g app-root-cause-list [items]="editor.rootCauses"></g>
+  <g app-root-cause-links [painPoints]="editor.painPoints"></g>
 </svg>
