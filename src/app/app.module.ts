@@ -3,26 +3,26 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PainPointListComponent } from './pain-point-list/pain-point-list.component';
-import { PaintPointItemComponent } from './paint-point-item/paint-point-item.component';
-import { RootCauseListComponent } from './root-cause-list/root-cause-list.component';
-import { RootCauseItemComponent } from './root-cause-item/root-cause-item.component';
-import { RootCauseLinkComponent } from './root-cause-link/root-cause-link.component';
-import { RootCauseEditorComponent } from './root-cause-editor/root-cause-editor.component';
+import { SourcePointListComponent } from './source-point-list/source-point-list.component';
+import { SourcePointItemComponent } from './source-point-item/source-point-item.component';
+import { TargetPointListComponent } from './target-point-list/target-point-list.component';
+import { TargetPointItemComponent } from './target-point-item/target-point-item.component';
+import { SourcePointLinkComponent } from './source-point-link/source-point-link.component';
+import { PointConnectEditorComponent } from './point-connect-editor/point-connect-editor.component';
 import { TextBlockComponent } from './text-block/text-block.component';
-import { RootCauseLinksComponent } from './root-cause-links/root-cause-links.component';
+import { SourcePointLinksComponent } from './source-point-links/source-point-links.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PainPointListComponent,
-    PaintPointItemComponent,
-    RootCauseListComponent,
-    RootCauseItemComponent,
-    RootCauseLinkComponent,
-    RootCauseEditorComponent,
+    SourcePointListComponent,
+    SourcePointItemComponent,
+    TargetPointListComponent,
+    TargetPointItemComponent,
+    SourcePointLinkComponent,
+    PointConnectEditorComponent,
     TextBlockComponent,
-    RootCauseLinksComponent
+    SourcePointLinksComponent
   ],
   imports: [
     BrowserModule,
