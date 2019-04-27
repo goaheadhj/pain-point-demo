@@ -21,7 +21,7 @@ export class SourcePointLinkComponent implements OnInit {
   }
 
   get target(): Rect {
-    return this.sourcePoint.taRgetPoint.rect;
+    return this.sourcePoint.targetPoint.rect;
   }
 
   ngOnInit() {
